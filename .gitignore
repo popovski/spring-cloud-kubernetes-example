@@ -1,0 +1,9 @@
+DiscoveryServer/target/
+GatewayService/.settings/
+GatewayService/target/
+PaymentService/.settings/
+PaymentService/target/
+ProductService/.settings/
+ProductService/target/
+*.classpath
+*.project

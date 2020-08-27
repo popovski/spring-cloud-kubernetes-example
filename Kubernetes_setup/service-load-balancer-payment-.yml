@@ -1,0 +1,20 @@
+# default cluster ip
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+  # name of the application defined in the deployment config
+    app: payment-service
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 8080
+    
+    
+#remove service    
+# kubectl delete service/payment-service-loadbalancer
+#create service
+#kubectl create -f deployment-payment.yml --save-config
