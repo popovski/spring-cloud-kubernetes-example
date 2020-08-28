@@ -20,10 +20,6 @@ public class ServiceAppApplication {
 	@Bean
 	public RouteLocator routes(RouteLocatorBuilder builder) {
 		return builder.routes()
-//					.route("rest_payment", r -> r.path("/payment**")
-//                    .uri("lb://payment-service"))
-//					.route("rest_product", r -> r.path("/product**")
-//		            .uri("lb://product-service"))
 				.route(p -> p.path("/payment**").filters(f -> f.hystrix(c -> c.setName("rest_payment")
 				.setFallbackUri("forward:/fallback")))
 				.uri("lb://payment-service"))
